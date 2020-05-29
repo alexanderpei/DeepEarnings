@@ -21,5 +21,10 @@ Rscript get_ZacksEarnings.R
 ```
 This will create a directory "DirtyZacksEarnings" where it stores each earnings for a company in a text file.
 
-### Downloading 10Q/10K files and Sentiment Analysis
+### Downloading 10Q/10K files and Sentiment Analysis (optional)
+
+Again this will require the text file "list_gvkey_cik.txt". I'm using the R package "edgar", which to me as been the easiest way to scrap SEC filings. This package requires a CIK number to scrape filings from.
+``` 
+Rscript get_SecSentiment.R
+```
 
