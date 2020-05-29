@@ -23,7 +23,7 @@ This will create a directory "DirtyZacksEarnings" where it stores each earnings 
 
 ### Downloading 10Q/10K files and Sentiment Analysis (optional)
 
-Again this will require the text file "list_gvkey_cik.txt". I'm using the R package "edgar", which to me as been the easiest way to scrap SEC filings. This package requires a CIK number to scrape filings from.
+Again this will require the text file "list_gvkey_cik.txt". I'm using the R package "edgar", which to me as been the easiest way to scrap SEC filings. This package requires a CIK number to scrape filings from. The current sentiment analysis built in to the edgar package is very simple. It just counts the number of positive/negative business words. More advanced NLP methods would obviously be better, but I haven't gotten around to that.
 ``` 
 Rscript get_SecSentiment.R
 ```
