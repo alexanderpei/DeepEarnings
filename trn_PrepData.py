@@ -72,14 +72,9 @@ for file in os.listdir(pathInEarn):
         idxBad = np.union1d(np.where(np.isnan(Estimate)), np.where(np.isnan(Reported))) # Union of both, need both to be valid
         y[startIdx:endIdx] = (Reported > Estimate).astype(np.int)
 
-print(X.shape, y.shape)
-
 # Remove the bad indicies where the earnings estimate/reported were nan values
 X = np.delete(X, idxBad, axis=0)
 y = np.delete(y, idxBad)
-
-print(X.shape, y.shape)
-
 
 # Don't want samples that are too crap. Delete samples with more than 100 nans. Can adjust yourself.
 # Also delete any samples that are all zeros.
@@ -91,8 +86,6 @@ idxBad = np.where(np.sum(X == 0, axis=1) == nFeat)[0]
 X = np.delete(X, idxBad, axis=0)
 y = np.delete(y, idxBad)
 
-print(X.shape, y.shape)
-
 # For the purpose of KNN imputation, need to have a feature where every data point has a number value (not a nan).
 # Arbitrarily will choose the total long term debt as this feature. Then remove any row that doesn't have
 # a value for this feature. Feel free to add more features
@@ -101,16 +94,12 @@ idxBad = np.where(np.isnan(X[:, idxNeedFeat]))[0]
 X = np.delete(X, idxBad, axis=0)
 y = np.delete(y, idxBad, axis=0)
 
-print(X.shape, y.shape)
-
 # Make features zero mean and unit variance
 X = (X - np.nanmean(X, axis=0))/np.nanstd(X, axis=0)
 
 # Remove any features which have nans across all of the samples
 idxBad = np.where(np.sum(np.isnan(X), axis=0) == X.shape[0])[0]
 X = np.delete(X, idxBad, axis=1)
-
-print(X.shape, y.shape)
 
 # Use KNN data imputation to fill in the nan values
 imputer = KNNImputer()
@@ -119,5 +108,3 @@ X = imputer.fit_transform(X)
 # Save the output
 np.savetxt(os.path.join(pathOut, 'X_imputed.txt'), X)
 np.savetxt(os.path.join(pathOut, 'y_imputed.txt'), y)
-
-print(X.shape, y.shape)
