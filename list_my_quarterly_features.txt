@@ -1,0 +1,216 @@
+acomincq - accumulated other comprehensive income (loss)
+acoq 	 - current assets - other - total
+actq 	 - current assets - total*
+altoq    - other long-term assets
+amcy 	 - amortization (cash flow)*
+ancq 	 - non-current assets - total
+aolochy  - assets and liabilities - other (net change)
+aoq      - assets - other - total
+apq      - account payable/creditors - trade
+atq 	 - assets - total*
+capsq    - capital surplus/share premium reserve
+capxy    - capital expenditures
+cdvcy    - cash dividends on common stock (cash flow)
+ceqq     - common/ordinary equity - total
+chechy   - cash and cash equivalents - increase (decrease)
+cheq 	 - cash and short-term investments
+chq 	 - cash*
+cibegniq - comp inc - beginning net income
+cibegniy - comp inc - beginning net income
+cicurrq  - comp inc - currency trans adj
+cicurry  - comp inc - currency trans adj
+ciderglq - comp inc - derivative gains/losses
+cidergly - comp inc - derivative gains/losses
+cimiiq   - comprehensive income - noncontrolling interest
+cimiiy   - comprehensive income - noncontrolling interest
+ciotherq - comp inc - other adj
+ciothery - comp inc - other adj
+ciq 	 - comprehensive income - total
+ciy 	 - comprehensive income - total
+cisecglq - comp inc - securities gains/losses
+cisecgly - comp inc - securities gains/losses
+citotalq - comprehensive income - parent
+citotaly - comprehensive income - parent
+cogsq    - cost of goods sold*
+cogsy    - cost of goods sold*
+cshiq    - common shares issued
+cshopq   - total shares repurchased - quarter
+cstkeq   - common stock equivalents - dollar savings*
+cstkey   - common stock equivalents - dollar savings*
+cstkq    - common/ordinary stock (capital)*
+dcomq    - deferred compensation
+dd1q     - long-term debt due in one year*
+depcy    - depreciation and depletion (cash flow)
+deracq   - derivative assets current
+deraltq  - derivative assets long-term
+derhedglq - gain/losses on derivatives and hedging
+derhedgly - gain/losses on derivatives and hedging
+derlcq   - derivative liabilities current
+derlltq  - derivative liabilities long-term
+dlcchy   - changes in current debt
+dlcq     - debt in current liabilities
+dltisy   - long-term debt - issuance
+dltry    - long-term debt - reduction
+dlttq    - long-term debt - total*
+doq      - discontinued operations
+doy      - discontinued operations
+dpactq   - depreciation, depletion and amoritzation (accumulated)
+dpcy     - depreciation and amortization - statement of cash flows
+dpq      - depreciation and amortization - total*
+dpy      - depreciation and amortization - total*
+drcq     - deferred revenue - current
+drltq    - deferred revenue - long-term
+dteaq    - extinguishment of debt after-tax
+dteay    - extinguishment of debt after-tax
+dtedq    - extinguishment of debt diluted EPS effect
+dtedy    - extinguishment of debt diluted EPS effect
+dteepsq  - extinguishment of debt basic EPS effect
+dteepsy  - extinguishment of debt basic EPS effect
+dtepq    - extinguishment of debt pretax
+dtepy    - extinguishment of debt pretax
+dvintfq  - dividends and interest receivable (cash flow)
+dvpq     - dividends - preferred/preference
+dvpy     - dividends - preferred/preference
+dvpspq   - dividends per share - pay date - quarter
+dvpsxq   - div per share - exdate - quarter
+dvy      - cash dividends*
+
+
+esubcy   - equity in net loss/earnings (c/f)
+esubq    - equity in earnings (i/s) unconsodilated subsidaries
+esuby    - equity in earnings (i/s) unconsolidated subsidaries
+
+ffoq     - funds from operations (reit)
+ffoy     - funds from operations (reit)
+fopty    - funds from operations - total
+fsrcty   - sources of funds - total
+fusety   - use of funds - total
+gdwlamq  - amortization of goodwill
+gdwlamy  - amortization of goodwill
+gdwlq    - goodwill (net)
+IBADJ12	 - Income Before Extra Items - Adj for Common Stock Equivalents - 12MM
+IBADJQ	- Income Before Extraordinary Items - Adjusted for Common Stock Equivalents
+IBADJY	- Income Before Extraordinary Items - Adjusted for Common Stock Equivalents
+IBCOMQ	- Income Before Extraordinary Items - Available for Common
+IBCOMY	- Income Before Extraordinary Items - Available for Common
+IBCY	- Income Before Extraordinary Items - Statement of Cash Flows
+IBMIIQ	- Income before Extraordinary Items and Noncontrolling Interests
+IBMIIY	- Income before Extraordinary Items and Noncontrolling Interests
+IBQ	- Income Before Extraordinary Items
+IBY	- Income Before Extraordinary Items
+ICAPTQ	- Invested Capital - Total - Quarterly
+INTACCQ	- Interest Accrued
+INTANOQ	- Other Intangibles
+INTANQ	- Intangible Assets - Total
+INTPNY	- Interest Paid - Net
+INVCHY	- Inventory - Decrease (Increase)
+INVFGQ	- Inventory - Finished Goods
+INVOQ	- Inventory - Other
+INVRMQ	- Inventory - Raw Materials
+INVTQ	- Inventories - Total
+INVWIPQ	- Inventory - Work in Process
+ITCCY	- Investment Tax Credit - Net (Cash Flow)
+IVACOY	- Investing Activities - Other
+IVAEQQ	- Investment and Advances - Equity
+IVAOQ	- Investment and Advances - Other
+IVCHY	- Increase in Investments
+IVLTQ	- Total Long-term Investments
+IVNCFY	- Investing Activities - Net Cash Flow
+IVSTCHY	- Short-Term Investments - Change
+IVSTQ	- Short-Term Investments- Total
+LCOQ	- Current Liabilities - Other - Total
+LCTQ	- Current Liabilities - Total
+LLTQ	- Long-Term Liabilities (Total)
+
+MKVALTQ	- Market Value - Total	
+
+PNCY	- Core Pension Adjustment
+PRSTKCCY - Purchase of Common Stock (Cash Flow)
+PRSTKCY	- Purchase of Common and Preferred Stock
+PRSTKPCY - Purchase of Preferred/Preference Stock (Cash Flow)
+PSTKNQ - Preferred/Preference Stock - Nonredeemable
+PSTKQ - Preferred/Preference Stock (Capital) - Total
+
+RDIPAQ - In Process R&D Expense After-tax
+RDIPAY - In Process R&D Expense After-tax
+RDIPDQ - In Process R&D Expense Diluted EPS Effect
+RDIPDY - In Process R&D Expense Diluted EPS Effect
+RDIPEPSQ - In Process R&D Expense Basic EPS Effect
+RDIPEPSY - In Process R&D Expense Basic EPS Effect
+RDIPQ - In Process R&D
+RDIPY - In Process R&D
+
+RECCHY - Accounts Receivable - Decrease (Increase)
+RECDQ - Receivables - Estimated Doubtful
+RECTAQ - Accum Other Comp Inc - Cumulative Translation Adjustments
+RECTOQ - Receivables - Current Other incl Tax Refunds
+RECTQ - Receivables - Total
+RECTRQ - Receivables - Trade
+RECUBQ - Unbilled Receivables - Quarterly
+REQ - Retained Earnings
+RETQ -- Total RE Property
+REUNAQ -- Unadjusted Retained Earnings
+REVTQ -- Revenue - Total
+REVTY -- Revenue - Total
+RLLQ -- Reserve for Loan/Asset Losses
+
+RSTCHELTQ -- Long-Term Restricted Cash & Investments
+RSTCHEQ -- Restricted Cash & Investments - Current
+SALEQ -- Sales/Turnover (Net)
+SALEY -- Sales/Turnover (Net)
+
+SCSTKCY -- Sale of Common Stock (Cash Flow)
+SEQOQ -- Other Stockholders- Equity Adjustments
+
+SETA12 -- Settlement (Litigation/Insurance) AfterTax - 12mm
+SETAQ -- Settlement (Litigation/Insurance) After-tax
+SETAY -- Settlement (Litigation/Insurance) After-tax
+SETD12 -- Settlement (Litigation/Insurance) Diluted EPS Effect 12MM
+SETDQ -- Settlement (Litigation/Insurance) Diluted EPS Effect
+SETDY -- Settlement (Litigation/Insurance) Diluted EPS Effect
+SETEPS12 -- Settlement (Litigation/Insurance) Basic EPS Effect 12MM
+SETEPSQ -- Settlement (Litigation/Insurance) Basic EPS Effect
+SETEPSY -- Settlement (Litigation/Insurance) Basic EPS Effect
+SETPQ -- Settlement (Litigation/Insurance) Pretax
+SETPY -- Settlement (Litigation/Insurance) Pretax
+
+SIVY -- Sale of Investments
+SSTKY -- Sale of Common and Preferred Stock
+
+TXDBCAQ -- Current Deferred Tax Asset
+TXDBCLQ -- Current Deferred Tax Liability
+TXDBQ -- Deferred Taxes - Balance Sheet
+TXDCY -- Deferred Taxes (Statement of Cash Flows)
+TXDIQ -- Income Taxes - Deferred
+TXDITCQ -- Deferred Taxes and Investment Tax Credit
+TXDIY -- Income Taxes - Deferred
+TXPDY -- Income Taxes Paid
+TXPQ -- Income Taxes Payable
+TXTQ -- Income Taxes - Total
+TXTY -- Income Taxes - Total
+
+UDDQ -- Debt (Debentures) - Utility
+UDFCCY -- Deferred Fuel - Increase (Decrease) (Statement of Cash Flows)
+UDMBQ -- Debt (Mortgage Bonds)
+UDOLTQ -- Debt (Other Long-Term)
+UDPCOQ -- Debt (Pollution Control Obligations)
+
+UGIQ -- Gross Income (Income Before Interest Charges)
+ULCOQ -- Current Liabilities - Other
+
+UTEMQ -- Maintenance Expense - Total
+UTFDOCY -- Total Funds From Ops (FOF)
+UTFOSCY -- Tot Funds Frm Outside Sources (FOF)
+
+XACCQ -- Accrued Expenses
+XIDOQ -- Extraordinary Items and Discontinued Operations
+XIDOY -- Extraordinary Items and Discontinued Operations
+XINTQ -- Interest and Related Expense- Total
+XINTY -- Interest and Related Expense- Total
+XIQ -- Extraordinary Items
+XIY -- Extraordinary Items
+XOPRQ -- Operating Expense- Total
+XOPRY -- Operating Expense- Total
+
+XRDQ -- Research and Development Expense
+XRDY -- Research and Development Expense

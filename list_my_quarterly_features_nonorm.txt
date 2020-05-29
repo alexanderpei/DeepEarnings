@@ -1,0 +1,39 @@
+capr1q    - risk-adjusted capital ratio - tier 1
+capr2q    - risk-adjusted capital ratio - tier 2
+GLAQ	  - Gain/Loss After-Tax
+GLAY	  - Gain/Loss After-Tax
+GLCEA12	  - Gain/Loss on Sale (Core Earnings Adjusted) After-tax 12MM
+GLCEAQ	  - Gain/Loss on Sale (Core Earnings Adjusted) After-tax
+GLCEAY	  - Gain/Loss on Sale (Core Earnings Adjusted) After-tax
+GLCED12	  - Gain/Loss on Sale (Core Earnings Adjusted) Diluted EPS Effect 12MM
+GLCEDQ	  - Gain/Loss on Sale (Core Earnings Adjusted) Diluted EPS
+GLCEDY	  - Gain/Loss on Sale (Core Earnings Adjusted) Diluted EPS
+GLCEEPS12 - Gain/Loss on Sale (Core Earnings Adjusted) Basic EPS Effect 12MM
+GLCEEPSQ  - Gain/Loss on Sale (Core Earnings Adjusted) Basic EPS Effect
+GLCEEPSY  - Gain/Loss on Sale (Core Earnings Adjusted) Basic EPS Effect
+GLCEPQ	  - Gain/Loss on Sale (Core Earnings Adjusted) Pretax
+GLCEPY	  - Gain/Loss on Sale (Core Earnings Adjusted) Pretax
+GLDQ	  - Gain/Loss Diluted EPS Effect
+GLDY	  - Gain/Loss Diluted EPS Effect
+GLEPSQ	  - Gain/Loss Basic EPS Effect
+GLEPSY	  - Gain/Loss Basic EPS Effect
+GLIVQ     - Gains/Losses on investments
+GLIVY     - Gains/Losses on investments
+GLPQ	  - Gain/Loss Pretax
+GLPY	  - Gain/Loss Pretax
+
+OPTVOLQ -- Volatility - Assumption (%)
+OPTVOLY -- Volatility - Assumption (%)
+
+epsf12   - Earnings Per Share (Diluted) - Excluding Extraordinary Items - 12 Months Mo
+epsfi12  - Earnings Per Share (Diluted) - Including Extraordinary Items
+epsfiq   - Earnings Per Share (Diluted) - Including Extraordinary Items
+epsfiy   - Earnings Per Share (Diluted) - Including Extraordinary Items
+epsfxq   - Earnings Per Share (Diluted) - Excluding Extraordinary items
+epsfxy   - Earnings Per Share (Diluted) - Excluding Extraordinary items
+epspi12  - Earnings Per Share (Basic) - Including Extraordinary Items - 12 Months Movi
+epspiq   - Earnings Per Share (Basic) - Including Extraordinary Items
+epspiy   - Earnings Per Share (Basic) - Including Extraordinary Items
+epspxq   - Earnings Per Share (Basic) - Excluding Extraordinary Items
+epspxy   - Earnings Per Share (Basic) - Excluding Extraordinary Items
+epsx12   - Earnings Per Share (Basic) - Excluding Extraordinary Items - 12 Months Movi
