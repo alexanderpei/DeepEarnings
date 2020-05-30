@@ -10,13 +10,12 @@ library(V8)
 # companies and for multiple time periods.
 # See the online manual for details. https://cran.r-project.org/web/packages/edgar/index.html
 #
-# Requires that there exists a text file "list_gvkey_cik.txt" which contains a tab delimited file of the company ticker,
-# GVkey, and CIK number. For example:
-# AAPL	001690	0000320193
-# The GVkey is not needed for this and can be replaced with something else.
+# Requires that there exists a text file "list_cik.txt" which contains a tab delimited file of the company ticker,
+# and CIK number. For example:
+# AAPL 0000320193
 
 path_out <- "DirtySentiment/"
-fileName <- "list_gvkey_cik.txt"
+fileName <- "list_cik.txt"
 conn <- file(fileName,open="r")
 linn <-readLines(conn)
 
@@ -24,7 +23,7 @@ for (i in 1:length(linn)){
 
     split <- strsplit(linn[i],'\t')
 	tkr <- split[[1]][1]
-	cik <- as.numeric(split[[1]][3])
+	cik <- as.numeric(split[[1]][2])
     print(tkr)
 	if (length(cik) > 0) {
         good <- TRUE

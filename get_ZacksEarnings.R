@@ -4,12 +4,12 @@ library(V8)
 
 # This script will scrape Zacks Earnings for earnings announcements.
 #
-# Requires that there exists a text file "list_gvkey_cik.txt" which contains a tab delimited file of the company ticker,
-# GVkey, and CIK number. Each new line will indicate another company. For example:
-# AAPL	001690	0000320193
+# Requires that there exists a text file "list_cik.txt" which contains a tab delimited file of the company ticker,
+# and CIK number. For example:
+# AAPL 0000320193
 # The GVkey and CIK are not needed for this and can be replaced with something else or left blank.
 
-fileName <- "list_gvkey_cik.txt"
+fileName <- "list_cik.txt"
 conn <- file(fileName,open="r")
 linn <-readLines(conn)
 
