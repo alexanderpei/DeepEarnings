@@ -1,6 +1,7 @@
 # DeepEarnings
 
 This is a project which attempts to model whether a company will beat or miss earnings announcements based on previous financial data, sentiment analysis, and stock price movement using deep learning. 
+Feel free to also use these methods to gather earnings or 10Q/10K data.
 
 ### Looking for collaborators / to-do list
 Feel free to reach out to me if you're interested in collaborating.
