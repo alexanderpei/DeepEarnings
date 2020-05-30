@@ -20,7 +20,7 @@ This project uses the R package "edgar" to scrape SEC 10Q/10K filings for sentim
 
 You're going to need a text file "list_gvkey_cik.txt" which contains a list of company tickers, GVkeys, and CIK numbers. This list will provide the companies to the get_ZacksEarnings.R to scrape. If you don't plan on doing sentiment analysis, you don't need the CIK numbers. The GVkeys will also be used later for the stock movement data, which I haven't gotten to yet.
 
-## Gathering Data
+## Gathering the Data
 
 ### Scraping zacks.com earnings
 
@@ -71,7 +71,7 @@ Same thing as above, must have ran the get_SecSentiment.R script before this one
 python pp_CleanSecSentiment.py
 ```
 
-## Training the network
+## Training the Network
 
 This current iteration does not incorporate the sentiment analysis. I've tried it and it does not increase accuracy substantially.
 
