@@ -59,7 +59,7 @@ python pp_CleanZacksEarnings.py
 ```
 
 ### Clean compustat data
-This script will save an X and y text files containing the training data with the labels. Rows corresspond to samples while columns correspond to features. 
+This script will save an X and y text files containing the training data with the labels. Rows correspond to samples while columns correspond to features. 
 
 ```
 python pp_CleanCompustat.py
