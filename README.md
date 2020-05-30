@@ -131,7 +131,7 @@ Financial data is messy because comapanies may omit certain financial data field
 good will for example). KNN imputation is a method used to fill in missing nan values based on closer points according
 to some distance metric.
 
-The data are also scaled by the market capitalization of every company to allow fair comparisons between comapnies'
+The data are also scaled by the market capitalization of every company to allow fair comparisons between companies'
 financial data.
 
 The data are also whitened (zero mean and unit variance across features) which can improve neural network training.
