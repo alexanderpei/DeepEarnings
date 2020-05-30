@@ -144,6 +144,6 @@ Dropout layers also helped reduce overfitting.
 
 
 
-![Accuracy](./pics/Figure_1.png)
+![nn](./pics/nn-plot.jpg)
 
-![Loss](./pics/Figure_2.png)
+
