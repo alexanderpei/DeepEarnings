@@ -5,7 +5,7 @@ This is a project which attempts to model whether a company will beat or miss ea
 ### Looking for collaborators / to-do list
 Feel free to reach out to me if you're interested in collaborating.
 Future ideas:
-1. Use LSTMs/RNNs to track OHLCLV + technical indicators before earnings
+1. Use LSTMs/RNNs to track OHLCLV + technical indicators before earnings (I've sorta tried this and it sorta works, need to clean it up before I commit).
 2. Use advanced NLP methods on 10Q/10K datasets
 3. Use reinforcement learning to develop trading strategies
 4. Use alternative data (Google trends) 
