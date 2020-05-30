@@ -4,7 +4,15 @@ This is a project which attempts to model whether a company will beat or miss ea
 
 Feel free to also use these methods to gather earnings or 10Q/10K data. Also please message me with any questions or comments :) 
 
-Current model accuracy: 
+Current model test accuracy: 66.91%
+
+Current model train accuracy: 71.11% 
+
+Baseline: 57.5% bias in classes to beat earnings
+
+Number of data points: 56621
+
+Timerange: 2010 - 2020
 
 ### Looking for collaborators / to-do list
 Feel free to reach out to me if you're interested in collaborating. I'm looking for people who are experienced traders who might know how to develop trading strategies off of this. I'm also looking for people who have an interest in machine learning with finance applications.

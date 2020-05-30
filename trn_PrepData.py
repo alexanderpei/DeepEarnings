@@ -84,7 +84,6 @@ y = np.delete(y, idxBad)
 print(np.sum(y))
 print(X.shape, y.shape)
 
-
 # Don't want samples that are too crap. Delete samples with more than 100 nans. Can adjust yourself.
 # Also delete any samples that are all zeros. These are rows that weren't filled in.
 idxBad = np.where(np.sum(np.isnan(X), axis=1) >= 100)[0]
