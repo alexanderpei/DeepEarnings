@@ -142,8 +142,6 @@ The network will contain two hidden layers with 250 hidden units each implented 
 chosen opposed to ReLU for better test data. l2 regularization also reduced overfitting and improved test accuracy.
 Dropout layers also helped reduce overfitting. 
 
-
-
 ![nn](./pics/nn-plot.jpg)
 
 
