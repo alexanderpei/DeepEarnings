@@ -4,7 +4,7 @@ This is a project which attempts to model whether a company will beat or miss ea
 Feel free to also use these methods to gather earnings or 10Q/10K data.
 
 ### Looking for collaborators / to-do list
-Feel free to reach out to me if you're interested in collaborating.
+Feel free to reach out to me if you're interested in collaborating. I'm looking for people who are experienced traders who might know how to develop trading strategies off of this. I'm also looking for people who have an interest in machine learning with finance applications.
 Future ideas:
 1. Use LSTMs/RNNs to track OHLCLV + technical indicators before earnings (I've sorta tried this and it sorta works, need to clean it up before I commit).
 2. Use advanced NLP methods on 10Q/10K datasets
