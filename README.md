@@ -24,6 +24,11 @@ Future ideas:
 
 ## Getting Started
 
+__Note: If you want to play around with these scripts using the small data set that I have provided, make sure to copy 
+copy all of the folders in "Data" to the main directory with all of the scripts, or change the file paths in the 
+scripts themselves but add the folder "Data". This is because I locally have the full data set that I don't want to 
+commit to the repo. Also I suck at Git since I'm new so if there is some nice solution to this let me know.__
+
 This project uses the R package "edgar" to scrape SEC 10Q/10K filings for sentiment analysis. You also need basic things like Pandas, scikit, and numpy. The neural networks will be built using Keras. I'm using PyCharm for everything so just download that and you can clone the repo. Also PyCharm will let you run R scripts. 
 
 You're going to need a text file "list_gvkey_cik.txt" which contains a list of company tickers, GVkeys, and CIK numbers. This list will provide the companies to the get_ZacksEarnings.R to scrape. If you don't plan on doing sentiment analysis, you don't need the CIK numbers. The GVkeys will also be used later for the stock movement data, which I haven't gotten to yet.
@@ -85,4 +90,10 @@ This current iteration does not incorporate the sentiment analysis. I've tried i
 
 ### Multilayer perceptron for compustat quarterly financial data
 
-Companies beat earnings 61% of the time. To account for this bias in the data, the classes were balanced such that 50% of the labels are beat earnings and 50% are miss. The network will contain four hidden layers with 250 hidden units each implented using Keras. SeLU activations were chosen opposed to ReLU for better test data. l2 regularization also reduced over fitting and improved test accuracy.
+The network will contain two hidden layers with 250 hidden units each implented using Keras. SeLU activations were 
+chosen opposed to ReLU for better test data. l2 regularization also reduced overfitting and improved test accuracy.
+Dropout layers also helped reduce overfitting. 
+
+The data set contains 56621 samples after cleaning. Train:test:validation are 0.8:0.1:0.1. 
+
+
