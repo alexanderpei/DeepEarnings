@@ -1,4 +1,3 @@
-
 def getFeatList(fileName):
 
     fid = open(fileName, 'r')

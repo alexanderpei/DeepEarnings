@@ -19,6 +19,8 @@ np.set_printoptions(precision=3, threshold=sys.maxsize)
 foldInEarn = "CleanZacksEarnings"
 foldInFund = "CleanCompustatFundQuarterly"
 foldOut    = "TrainData"
+# pathInEarn  = r"C:\Users\Alex\Desktop\small data\CleanZacksEarnings"
+# pathInFund  = r"C:\Users\Alex\Desktop\small data\CleanCompustatFundQuarterly"
 pathInEarn  = os.path.join(os.getcwd(), foldInEarn)
 pathInFund  = os.path.join(os.getcwd(), foldInFund)
 pathOut = os.path.join(os.getcwd(), foldOut)
@@ -66,23 +68,21 @@ for file in os.listdir(pathInEarn):
         count += 1
 
         # Gather the labels. However, some of the earnings data will be nans. We want to remove these samples.
-        # We'll save the bad indices and remove them.
+        # If either estimate or reported is a nan, set label as nan. Remove them later along with sample.
         Estimate = dfEarn["Estimate"].to_numpy().astype(np.float)
         Reported = dfEarn["Reported"].to_numpy().astype(np.float)
         idxBad = np.union1d(np.where(np.isnan(Estimate)), np.where(np.isnan(Reported))) # Union of both, need both to be valid
-        y[startIdx:endIdx] = (Reported > Estimate).astype(np.int)
+        yTemp = (Reported > Estimate).astype(np.float) # need float type to set nan value
+        yTemp[idxBad] = np.nan # Set these values to nan and then take care of them later
+        y[startIdx:endIdx] = yTemp
 
-print(X.shape, y.shape)
-
-# Remove the bad indicies where the earnings estimate/reported were nan values
+# Remove the bad indexes where the earnings estimate/reported were nan values
+idxBad = np.where(np.isnan(y))
 X = np.delete(X, idxBad, axis=0)
 y = np.delete(y, idxBad)
 
-print(X.shape, y.shape)
-
-
 # Don't want samples that are too crap. Delete samples with more than 100 nans. Can adjust yourself.
-# Also delete any samples that are all zeros.
+# Also delete any samples that are all zeros. These are rows that weren't filled in.
 idxBad = np.where(np.sum(np.isnan(X), axis=1) >= 100)[0]
 X = np.delete(X, idxBad, axis=0)
 y = np.delete(y, idxBad)
