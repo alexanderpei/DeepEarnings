@@ -66,3 +66,4 @@ for file in os.listdir(pathIn):
 
 # Save the last data frame
 df.to_pickle(os.path.join(pathOut, prevTkr + ".pk"))
+
