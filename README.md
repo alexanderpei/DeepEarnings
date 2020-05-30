@@ -69,6 +69,13 @@ set because of their terms and conditions. If you do have access yourself, you c
 Compustat - Capital IQ / Compustat / North America
 Daily / Fundamentals Quarterly through Wharton Research Data Services. For the variables, select all of them.
 
+If you don't have access to this data set, I recommend this free
+API https://financialmodelingprep.com/developer/docs/ I'm not sure how reliable this website is, but it's hard to
+come by free financial data. IEXCloud is probably another good choice, but it is not free after you hit a certain
+number of requests. Also if you're a beast, you could manually get this data directly from the 10Q/10K documents
+themselves. If you do end up using an alternative method, then you'll have customize your own script to clean
+the data you gather.
+
 This is the main chunk of data upon which the algorithm is trained on. The algorithm will receive data from balance 
 sheets, cash flow, debt, and much more, from the previous quarter. From these data, the algorithm will try to 
 predict if the company will beat earnings or not. 
