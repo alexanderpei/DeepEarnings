@@ -12,7 +12,7 @@ Baseline: 57.5% bias in classes to beat earnings
 
 Number of data points: 56621
 
-Time range: 2010 - 2020
+Time range:  2010 - 2020
 
 ### Looking for collaborators / to-do list
 Feel free to reach out to me if you're interested in collaborating. I'm looking for people who are experienced traders who might know how to develop trading strategies off of this. I'm also looking for people who have an interest in machine learning with finance applications.
