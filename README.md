@@ -125,11 +125,24 @@ accuracy substantially, however I will be adding it back in the future for compl
 
 ### Multilayer perceptron for compustat quarterly financial data
 
+__Preprocessing__
+
+Financial data is messy because comapanies may omit certain financial data fields (Apple may not have reported their
+good will for example). KNN imputation is a method used to fill in missing nan values based on closer points according
+to some distance metric.
+
+The data are also scaled by the market capitalization of every company to allow fair comparisons between comapnies'
+financial data.
+
+The data are also whitened (zero mean and unit variance across features) which can improve neural network training.
+
+The data set contains 56621 samples after cleaning. Train:test:validation are 0.8:0.1:0.1. 
+
 The network will contain two hidden layers with 250 hidden units each implented using Keras. SeLU activations were 
 chosen opposed to ReLU for better test data. l2 regularization also reduced overfitting and improved test accuracy.
 Dropout layers also helped reduce overfitting. 
 
-The data set contains 56621 samples after cleaning. Train:test:validation are 0.8:0.1:0.1. 
+
 
 ![Accuracy](./pics/Figure_1.png)
 

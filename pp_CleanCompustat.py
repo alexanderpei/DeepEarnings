@@ -4,7 +4,7 @@ import pandas as pd
 
 # This function cleans the text file that was generated from querying Compustat - Capital IQ / Compustat / North America
 # - Daily / Fundamentals Quarterly through Wharton Research Data Services. The data fields selected were all of them.
-# Assumes that there exists a directory "DirtyCompustatFundQuarterly"
+# Assumes that there exists a directory "DirtyCompustatFundQuarterly" with a text file in there from the query
 
 foldIn  = "DirtyCompustatFundQuarterly"
 foldOut = "CleanCompustatFundQuarterly"
@@ -35,7 +35,6 @@ for file in os.listdir(pathIn):
             # In this case, the ninth entry in split is the ticker queried variable from Compustat. May differ
             # depending on how you queried the database.
             currTkr = split[9]
-
             if currTkr != prevTkr:
                 # Creating an individual data frame for each stock. Not sure if this is the best way. Dataframe will
                 # have the indices as the quarters. If we moved to a new ticker we will save the old one
@@ -54,7 +53,6 @@ for file in os.listdir(pathIn):
             for i in range(len(split)):
                 if split[i] == '':
                     split[i] = np.nan
-
             df.at[tempQDate, columns] = split
 
             prevTkr = currTkr
