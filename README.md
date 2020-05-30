@@ -96,4 +96,6 @@ Dropout layers also helped reduce overfitting.
 
 The data set contains 56621 samples after cleaning. Train:test:validation are 0.8:0.1:0.1. 
 
+![Accuracy](./pics/Figure_1.png)
 
+![Loss](./pics/Figure_2.png)
