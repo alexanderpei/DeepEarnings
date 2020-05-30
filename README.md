@@ -1,7 +1,10 @@
 # DeepEarnings
 
-This is a project which attempts to model whether a company will beat or miss earnings announcements based on previous financial data, sentiment analysis, and stock price movement using deep learning. 
-Feel free to also use these methods to gather earnings or 10Q/10K data.
+This is a project which attempts to model whether a company will beat or miss earnings announcements based on previous financial data, sentiment analysis, and stock price movement using deep learning. For example, will the amount of long-term debt impact next quarters earnings? How about the amount of R&D spent? Do increases in volume contain information about upcoming earnings announcements? Deep learning pulls out complex, non-linear statistical dependencies in the data between every variable that are otherwise unobservable to humans. The end-goal is to develop trading strategies through reinforcement learning to develop a profitable algorithm. 
+
+Feel free to also use these methods to gather earnings or 10Q/10K data. Also please message me with any questions or comments :) 
+
+Current model accuracy: 
 
 ### Looking for collaborators / to-do list
 Feel free to reach out to me if you're interested in collaborating. I'm looking for people who are experienced traders who might know how to develop trading strategies off of this. I'm also looking for people who have an interest in machine learning with finance applications.
@@ -15,7 +18,7 @@ Future ideas:
 
 This project uses the R package "edgar" to scrape SEC 10Q/10K filings for sentiment analysis. You also need basic things like Pandas, scikit, and numpy. The neural networks will be built using Keras. I'm using PyCharm for everything so just download that and you can clone the repo. Also PyCharm will let you run R scripts. 
 
-You're going to need a text file "list_gvkey_cik.txt" which contains a list of company tickers, GVkeys, and CIK numbers. This list will provide the companies to the get_ZacksEarnings.R to scrape. If you don't plan on doing sentiment analysis, you don't need the CIK numbers. The GVkeys will also be used later for the stock movement data., which I haven't gotten to yet.
+You're going to need a text file "list_gvkey_cik.txt" which contains a list of company tickers, GVkeys, and CIK numbers. This list will provide the companies to the get_ZacksEarnings.R to scrape. If you don't plan on doing sentiment analysis, you don't need the CIK numbers. The GVkeys will also be used later for the stock movement data, which I haven't gotten to yet.
 
 ## Gathering Data
 
@@ -34,6 +37,8 @@ This will create a directory "DirtyZacksEarnings" where it stores each earnings 
 
 I have access to Compustat North American through my university. I don't think I'm allowed to share that data set because of their terms and conditions. If you do have access yourself, you can get this data set by querying Compustat - Capital IQ / Compustat / North America
 Daily / Fundamentals Quarterly through Wharton Research Data Services. For the variables, select all of them.
+
+This is the main chunk of data upon which the algorithm is trained on. The algorithm will receive data from balance sheets, cash flow, debt, and much more, from the previous quarter. From these data, the algorithm will try to predict if the company will beat earnings or not. 
 
 ### Downloading 10Q/10K files and sentiment analysis (optional)
 
