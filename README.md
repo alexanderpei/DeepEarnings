@@ -121,7 +121,7 @@ python pp_CleanSecSentiment.py
 ## Training the Network
 
 This current iteration does not incorporate the sentiment analysis. I've tried it and it does not increase 
-accuracy substantially.
+accuracy substantially, however I will be adding it back in the future for completeness.
 
 ### Multilayer perceptron for compustat quarterly financial data
 
