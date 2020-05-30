@@ -54,6 +54,7 @@ python pp_CleanZacksEarnings.py
 ```
 
 ### Clean compustat data
+This script will save an X and y text files containing the training data with the labels. Rows corresspond to samples while columns correspond to features. 
 
 ```
 python pp_CleanCompustat.py
@@ -64,3 +65,11 @@ Same thing as above, must have ran the get_SecSentiment.R script before this one
 ``` 
 python pp_CleanSecSentiment.py
 ```
+
+## Training the network
+
+This current iteration does not incorporate the sentiment analysis. I've tried it and it does not increase accuracy substantially.
+
+### Multilayer perceptron for compustat quarterly financial data
+
+Companies beat earnings 61% of the time. To account for this bias in the data, the classes were balanced such that 50% of the labels are beat earnings and 50% are miss. The network will contain four hidden layers with 250 hidden units each implented using Keras. SeLU activations were chosen opposed to ReLU for better test data. l2 regularization also reduced over fitting and improved test accuracy.
