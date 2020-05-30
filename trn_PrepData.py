@@ -81,11 +81,17 @@ idxBad = np.where(np.isnan(y))
 X = np.delete(X, idxBad, axis=0)
 y = np.delete(y, idxBad)
 
+print(np.sum(y))
+print(X.shape, y.shape)
+
+
 # Don't want samples that are too crap. Delete samples with more than 100 nans. Can adjust yourself.
 # Also delete any samples that are all zeros. These are rows that weren't filled in.
 idxBad = np.where(np.sum(np.isnan(X), axis=1) >= 100)[0]
 X = np.delete(X, idxBad, axis=0)
 y = np.delete(y, idxBad)
+
+print(X.shape, y.shape)
 
 idxBad = np.where(np.sum(X == 0, axis=1) == nFeat)[0]
 X = np.delete(X, idxBad, axis=0)
@@ -93,9 +99,9 @@ y = np.delete(y, idxBad)
 
 print(X.shape, y.shape)
 
-# For the purpose of KNN imputation, need to have a feature where every data point has a number value (not a nan).
+# For the purpose of KNN imputation, need to have a feature where every sample has a number value (not a nan).
 # Arbitrarily will choose the total long term debt as this feature. Then remove any row that doesn't have
-# a value for this feature. Feel free to add more features
+# a value for this feature. Feel free to add more features.
 idxNeedFeat = featList.index("dlttq")
 idxBad = np.where(np.isnan(X[:, idxNeedFeat]))[0]
 X = np.delete(X, idxBad, axis=0)
@@ -112,7 +118,7 @@ X = np.delete(X, idxBad, axis=1)
 
 print(X.shape, y.shape)
 
-# Use KNN data imputation to fill in the nan values
+# Use KNN data imputation to fill in the nan values. This will take a while for large number of samples.
 imputer = KNNImputer()
 X = imputer.fit_transform(X)
 

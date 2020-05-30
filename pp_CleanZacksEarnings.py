@@ -50,14 +50,13 @@ for file in os.listdir(pathIn):
                 Reported = split[4].replace("$", "")
                 Reported = float(Reported.replace(",", ""))
 
-
             # Calculate the surprise and the percent surprise
             Surprise = Reported - Estimate
 
             if np.isnan(Estimate) or np.isnan(Reported) or Estimate == 0:
                 pctSurprise = np.nan
             else:
-                pctSurprise = Surprise/Estimate*100
+                pctSurprise = Surprise/abs(Estimate)*100
 
             # Announced before market open or after market close
             if split[7][:-1] == "After Close":

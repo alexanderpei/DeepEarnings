@@ -34,7 +34,6 @@ for file in os.listdir(pathIn):
         for line in Lines[1:]:
 
             # There is some jank, some of the entries are in double quotes and some are not.
-
             line = line.strip()
             split = line.split('" ')
 
