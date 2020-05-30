@@ -32,7 +32,7 @@ This will create a directory "DirtyZacksEarnings" where it stores each earnings 
 ### Financial Data
 
 I have access to Compustat North American through my university. I don't think I'm allowed to share that data set because of their terms and conditions. If you do have access yourself, you can get this data set by querying Compustat - Capital IQ / Compustat / North America
-- Daily / Fundamentals Quarterly through Wharton Research Data Services. For the variables, select all of them.
+Daily / Fundamentals Quarterly through Wharton Research Data Services. For the variables, select all of them.
 
 ### Downloading 10Q/10K files and sentiment analysis (optional)
 
