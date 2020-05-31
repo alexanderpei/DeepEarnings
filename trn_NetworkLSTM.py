@@ -32,7 +32,7 @@ print(y.shape)
 Xtrain, Xtest, ytrain, ytest = train_test_split(X, y, test_size=0.1)
 
 model = Sequential()
-model.add(Bidirectional(LSTM(64)))
+model.add(Bidirectional(LSTM(10)))
 model.add(Dropout(0.5))
 model.add(Dense(1, activation='sigmoid'))
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
