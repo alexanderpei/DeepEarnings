@@ -189,7 +189,7 @@ chosen opposed to ReLU for better performance. l2 regularization and dropout lay
 improved test accuracy.
 
 
-![nn](./pics/nn-plot.jpg)
+![nn](./pics/nn-plot.png)
 
 ### LSTM for OHLCV data 
 

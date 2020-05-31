@@ -29,7 +29,7 @@ nTrain, inDim = X.shape
 print(X.shape)
 print(y.shape)
 
-Xtrain, Xtest, ytrain, ytest = train_test_split(X, y, test_size=0.1)
+Xtrain, Xtest, ytrain, ytest = train_test_split(X, y, test_size=0.1, shuffle=False)
 
 model = Sequential()
 model.add(Dense(250, input_dim=inDim, activation='selu'))
@@ -49,8 +49,8 @@ _, testAcc = model.evaluate(Xtest, ytest)
 print('Test Accuracy: %.2f' % (testAcc*100))
 
 # Save the model
-pathOutModel = os.path.join(pathOut, 'model.json')
-modelJson = model.to_json()
-with open(pathOutModel, 'w') as jsonFile:
-    jsonFile.write(modelJson)
-model.save_weights(os.path.join(pathOut, 'model.h5'))
+# pathOutModel = os.path.join(pathOut, 'model.json')
+# modelJson = model.to_json()
+# with open(pathOutModel, 'w') as jsonFile:
+#     jsonFile.write(modelJson)
+# model.save_weights(os.path.join(pathOut, 'model.h5'))
