@@ -103,11 +103,11 @@ these text files into a Pandas data frame:
 ```
 python pp_CleanZacksEarnings.py
 ```
-This will make a data frame formatted like so. These are a feew earnings from AAPL:
+This will make a data frame formatted like so. These are a few earnings from AAPL:
 
 | Quarter (index for the df) | DateAnnounced | Estimate | Reported | Surprise | pctSurprise | AMC |
 | --- | --- | --- | --- | --- | --- | --- |
-| 2019Q2 | 2019-07-30 00:00:00 | 2.1 | 2.18 | 0.08 | 3.80952 | True |
+| 2019Q2 | 2019-07-30 00:00:00 | 2.1  | 2.18 | 0.08 | 3.80952 | True |
 | 2019Q3 | 2019-10-30 00:00:00 | 2.84 | 3.03 | 0.19 | 6.69014 | True |
 | 2019Q4 | 2020-01-28 00:00:00 | 4.54 | 4.99 | 0.45 | 9.91189 | True |
 | 2020Q1 | 2020-04-30 00:00:00 | 2.09 | 2.55 | 0.46 | 22.0096 | True |
@@ -119,6 +119,15 @@ samples while columns correspond to features.
 ```
 python pp_CleanCompustat.py
 ```
+This will make a data frame formatted like so. These are a few entries for the Compustat Fundamanetals Quarterly for 
+AAPL.
+
+|Quarter (index for the df) | gvkey | datadate | fyearq | fqtr |  fyr | indfmt | ... | mkvaltq | prccq | prchq | prclq | adjex | spcseccd | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
+|2019Q2 | 001690 | 20190630 | 2019 | 3 | 9 | INDL | ... | 896853.6984  | 197.9200 | 215.3100 | 170.2700 | 1.0000 | 940 | 
+|2019Q3 | 001690 | 20190930 | 2019 | 4 | 9 | INDL | ... | 995151.5669  | 223.9700 | 226.4200 | 192.5800 | 1.0000 | 940 | 
+|2019Q4 | 001690 | 20191231 | 2020 | 1 | 9 | INDL | ... | 1287643.2104 | 293.6500 | 293.9700 | 215.1320 | 1.0000 | 940 | 
+|2020Q1 | 001690 | 20200331 | 2020 | 2 | 9 | INDL | ... | 1099546.6542 | 254.2900 | 327.8500 | 212.6100 | 1.0000 | 940 | 
 
 ### Clean sentiment data (optional)
 Same thing as above, must have ran the get_SecSentiment.R script before this one.
@@ -130,10 +139,10 @@ for AAPL. lmWeakCnt are the number of Loughran-McDonald weak words in the 10Q/10
 
 | Quarter (index for the df) | CIK | CompanyName | FormType | DateFiled | ... | lmWeakCnt | lmUncerCnt | lmLitigCnt | harvNegCnt |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
-| 2019Q2 | 320193 | APPLE INC | 10-Q | 2019-07-31 | ... | 157 | 367 | 236 | 1356 |
-| 2019Q3 | 320193 | Apple Inc | 10-K | 2019-10-31 | ... | 177    |    438     |   265  |     1666 |
-| 2019Q4 | 320193 | Apple Inc | 10-Q | 2020-01-29 | ... | 44    |    147     |    93  |      641 |
-| 2020Q1 | 320193 | Apple Inc | 10-Q | 2020-05-01 | ... | 47    |    153     |    97  |      831 |
+| 2019Q2 | 320193 | Apple Inc | 10-Q | 2019-07-31 | ... | 157 | 367 | 236 | 1356 |
+| 2019Q3 | 320193 | Apple Inc | 10-K | 2019-10-31 | ... | 177 | 438 | 265 | 1666 |
+| 2019Q4 | 320193 | Apple Inc | 10-Q | 2020-01-29 | ... | 44  | 147 | 93  | 641  |
+| 2020Q1 | 320193 | Apple Inc | 10-Q | 2020-05-01 | ... | 47  | 153 | 97  | 831  |
 
 ## Training the Network
 
