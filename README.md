@@ -22,8 +22,8 @@ Feel free to reach out to me if you're interested in collaborating. I'm looking 
 traders who might know how to develop trading strategies off of this. I'm also looking for people who have an
  interest in machine learning with finance applications.
 Future ideas:
-1. Use LSTMs/RNNs to track OHLCLV + technical indicators before earnings (I've sorta tried this and it sorta works,
-need to clean it up before I commit).
+1. ~~Use LSTMs/RNNs to track OHLCLV + technical indicators before earnings (I've sorta tried this and it sorta works,
+need to clean it up before I commit).~~ Improve LSTM parameters and add technical indicators
 2. Use advanced NLP methods on 10Q/10K datasets
 3. Use reinforcement learning to develop trading strategies
 4. Use alternative data (Google trends) 
