@@ -77,8 +77,8 @@ for file in os.listdir(pathIn):
 df.to_pickle(os.path.join(pathOut, prevTkr + '.pk'))
 
 # Plot a stock price just to test things are working
-# temp = df['prc'].to_numpy().astype(np.float)
-# temp = np.delete(temp, np.where(np.isnan(temp)))
-#
-# plt.plot(temp)
-# plt.show()
+temp = df['prc'].to_numpy().astype(np.float)
+temp = np.delete(temp, np.where(np.isnan(temp)))
+
+plt.plot(temp)
+plt.show()

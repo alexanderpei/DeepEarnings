@@ -10,15 +10,12 @@ The end-goal is to develop trading strategies through reinforcement learning to 
 Feel free to also use these methods to gather earnings or 10Q/10K data. Also please message me with any questions 
 or comments :) 
 
-Current model test accuracy: 66.91%
+__Current Performance__
+Baseline bias is the natural bias in the data for a company to beat earnings.
 
-Current model train accuracy: 71.11% 
-
-Baseline: 57.5% bias in classes to beat earnings
-
-Number of data points: 56621
-
-Time range:  2010 - 2020
+| Data Features | Model | Baseline Bias | Train Acc | Test Acc | Num Samples | Time Range | 
+| --- | --- | --- | --- | --- | --- | --- |
+| Compustat IQ Fundamentals Quarterly | 2 Layer NN | 57.5% | 66.91% | 71.11% | 56621 | 2010-2020 |
 
 ### Looking for collaborators / to-do list
 Feel free to reach out to me if you're interested in collaborating. I'm looking for people who are experienced 
@@ -159,8 +156,9 @@ The data are also whitened (zero mean and unit variance across features) which c
 The data set contains 56621 samples after cleaning. Train:test:validation set are split 0.8:0.1:0.1. 
 
 The network will contain two hidden layers with 250 hidden units each implented using Keras. SeLU activations were 
-chosen opposed to ReLU for better test data. l2 regularization also reduced overfitting and improved test accuracy.
-Dropout layers also helped reduce overfitting. 
+chosen opposed to ReLU for better performance. l2 regularization and dropout layers also reduced overfitting and 
+improved test accuracy.
+
 
 ![nn](./pics/nn-plot.jpg)
 
