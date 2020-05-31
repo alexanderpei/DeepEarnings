@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from keras.models import Sequential
 from keras.layers import Dropout, Dense, LSTM, Bidirectional
 from keras.regularizers import l2
-from HelperFunctions import AlexComputer
+from HelperFunctions import AlexComputer, MakePlot
 from sklearn.model_selection import train_test_split
 
 foldIn  = 'TrainDataLSTM'
@@ -32,30 +32,14 @@ print(y.shape)
 Xtrain, Xtest, ytrain, ytest = train_test_split(X, y, test_size=0.1)
 
 model = Sequential()
-model.add(Bidirectional(LSTM(10)))
-model.add(Dropout(0.5))
+model.add(Bidirectional(LSTM(5)))
+model.add(Dropout(0.2))
 model.add(Dense(1, activation='sigmoid'))
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 history = model.fit(Xtrain, ytrain, validation_split=0.1, epochs=100, batch_size=64, verbose=2)
 
-# Plotting taken from https://machinelearningmastery.com/display-deep-learning-model-training-history-in-keras/ since
-# I'm noob at Python
-# summarize history for accuracy
-plt.plot(history.history['accuracy'])
-plt.plot(history.history['val_accuracy'])
-plt.title('model accuracy')
-plt.ylabel('accuracy')
-plt.xlabel('epoch')
-plt.legend(['train', 'val'], loc='upper left')
-plt.show()
-# summarize history for loss
-plt.plot(history.history['loss'])
-plt.plot(history.history['val_loss'])
-plt.title('model loss')
-plt.ylabel('loss')
-plt.xlabel('epoch')
-plt.legend(['train', 'val'], loc='upper left')
-plt.show()
+# Plot
+MakePlot(history)
 
 _, trainAcc = model.evaluate(Xtrain, ytrain)
 print('Train Accuracy: %.2f' % (trainAcc*100))

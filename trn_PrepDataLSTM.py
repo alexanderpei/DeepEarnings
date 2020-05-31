@@ -7,15 +7,8 @@ from sklearn.impute import KNNImputer
 from sklearn.preprocessing import normalize
 np.set_printoptions(precision=3, threshold=sys.maxsize)
 
-# This script will load in the Pandas data frames into a numpy matrix.
-# Step 1. Will load in the earnings pandas data frame
-# Step 2. Will load in the stock data
-#   - This step will require a file 'list_my_quarterly_features.txt'. This file contains the list of features that
-#   - that you want to use. These features need normalization (for example dividing the feature by the market
-#   - capitalization so that it is a fair comparison across companies)
-#   = This step will also require a file 'list_my_quarterly_features_nonorm.txt'. These features do not need to be
-#   - normalized. For example some ratios or percentage features.
-# Step 3. Impute the missing data points using knnimpute
+# This script will load in the Pandas data frames into a numpy matrix. The data will be time series OHLCV stock data
+# 30 days prior to the earnings announcement
 
 foldInEarn = 'CleanZacksEarnings'
 foldInPrce = 'CleanStockPrice'
@@ -45,8 +38,10 @@ nDay = 30
 # Pre allocating the numpy array. Keras LSTM 3D tensor with shape [batch, timesteps, feature]
 nFeat = len(featList)
 nData = len(os.listdir(pathInEarn)) * len(dates) # Number of total data points
-X = np.zeros((nData, nDay, nFeat))
+X = np.zeros((nData, nDay, nFeat*2)) # Double the amount of features since we'll use SPY as "background" data
 y = np.zeros((nData))
+
+dfSpy = pd.read_pickle(os.path.join(pathInPrce, 'SPY.pk'))
 
 # Looping through all of the earnings data frames
 count = 0
@@ -84,18 +79,22 @@ for file in os.listdir(pathInEarn):
                     # Not sure how to avoid this without try except
                     try:
                         tempData = dfPrce.loc[startDate:endDate, featList].to_numpy().astype(np.float)
+                        tempSpy  = dfSpy.loc[startDate:endDate, featList].to_numpy().astype(np.float)
                     except:
                         print('Random char in array')
 
-                    # Delete rows which contain nans:
+                    # Delete samples which contain nans:
                     idxBad = np.where(np.sum(np.isnan(tempData), 1) > 0)
                     tempData = np.delete(tempData, idxBad, axis=0)
+                    # Delete samples for SPY which contain nans:
+                    idxBad = np.where(np.sum(np.isnan(tempSpy), 1) > 0)
+                    tempSpy = np.delete(tempSpy, idxBad, axis=0)
+
                     # If there are more than nDay data points, store the data. Also normalize across time points
                     # within each features.
                     if tempData.shape[0] >= nDay:
-                        X[count, :, :] = normalize(tempData[-nDay:, :], axis=0)
-                    else:
-                        goodTempData = 0
+                        X[count, :, 0:nFeat] = normalize(tempData[-nDay:, :], axis=0)
+                        X[count, :, nFeat:nFeat*2] = normalize(tempSpy[-nDay:, :], axis=0)
 
                     Estimate = dfEarn.at[date, 'Estimate']
                     Reported = dfEarn.at[date, 'Reported']
@@ -119,7 +118,7 @@ y = np.delete(y, idxBad)
 
 print(X.shape, y.shape)
 # Remove samples where everything is a zero
-idxBad = np.where(np.sum(X, axis=(1, 2)) == 0)
+idxBad = np.where(np.sum(X == 0, axis=(1, 2)) >= nFeat*nDay)
 X = np.delete(X, idxBad, axis=0)
 y = np.delete(y, idxBad)
 

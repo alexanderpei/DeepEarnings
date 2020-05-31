@@ -16,7 +16,7 @@ Baseline bias is the natural bias in the data for a company to beat earnings.
 | Data Features | Model | Baseline Bias | Train Acc | Test Acc | Num Samples | Time Range | 
 | --- | --- | --- | --- | --- | --- | --- |
 | Compustat IQ Fundamentals Quarterly | 2 Layer NN | 57.50% | 66.91% | 71.11% | 56621 | 2010-2020 |
-| OHCLV 30 prior to earnings          | biLSTM     | 56.84% |        |        | 81548 | 2010-2020 |
+| OHCLV 30 prior to earnings          | biLSTM     | 56.84% | 58.54% | 58.45% | 81549 | 2010-2020 |
 ### Looking for collaborators / to-do list
 Feel free to reach out to me if you're interested in collaborating. I'm looking for people who are experienced 
 traders who might know how to develop trading strategies off of this. I'm also looking for people who have an
@@ -162,7 +162,7 @@ for AAPL. For example, lmWeakCnt are the number of Loughran-McDonald weak words 
 | 2019Q4 | 320193 | Apple Inc | 10-Q | 2020-01-29 | ... | 44  | 147 | 93  | 641  |
 | 2020Q1 | 320193 | Apple Inc | 10-Q | 2020-05-01 | ... | 47  | 153 | 97  | 831  |
 
-## Training the Network
+## Training the networks
 
 This current iteration does not incorporate the sentiment analysis. I've tried it and it does not increase 
 accuracy substantially, however I will be adding it back in the future for completeness.
@@ -189,4 +189,21 @@ improved test accuracy.
 
 ![nn](./pics/nn-plot.jpg)
 
+### LSTM for OHLCV data 
 
+__Preprocessing__
+
+Most stock price data is clean. 30 trading days worth of data before the announced earnings date are used as features 
+for the LSTM. Each feature is normalized across time within each sample. Otherwise Volume would be several
+orders of magnitude higher than every other feature). This way, The LSTM will be forced to learn statistics about the
+dynamics of the OHLCV movement. 
+
+Additionally, "background" market data in the form of SPY will be added for each time frame. This may give an indication
+of how the market is doing in general.
+
+A single biLSTM layer with 10 hidden units is used along with a dropout layer to reduce overfitting.
+
+Future directions will be to add more technical indicators. As you can see from the plots, the accuracy isn't too great,
+and the parameters definitely need tuning. Including the background SPY data definitely helps.
+
+![nn](./pics/lstm-plot.png)
