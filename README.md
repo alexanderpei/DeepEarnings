@@ -125,7 +125,8 @@ Same thing as above, must have ran the get_SecSentiment.R script before this one
 ``` 
 python pp_CleanSecSentiment.py
 ```
-This will make a data frame formatted like so. These are a few of the 
+This will make a data frame formatted like so. These are a few entries for the sentiment analysis
+for AAPL. lmWeakCnt are the number of Loughran-McDonald weak words in the 10Q/10K document.
 
 | Quarter (index for the df) | CIK | CompanyName | FormType | DateFiled | ... | lmWeakCnt | lmUncerCnt | lmLitigCnt | harvNegCnt |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
