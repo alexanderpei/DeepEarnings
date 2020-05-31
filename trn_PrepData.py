@@ -24,9 +24,9 @@ if AlexComputer(): # Use the full data set
     pathInFund = os.path.join(os.getcwd(), foldInFund)
     pathOut = os.path.join(os.getcwd(), foldOut)
 else:
-    pathInEarn = os.path.join(os.getcwd(), 'Data' foldInEarn)
-    pathInFund = os.path.join(os.getcwd(), foldInFund)
-    pathOut = os.path.join(os.getcwd(), foldOut)
+    pathInEarn = os.path.join(os.getcwd(), 'Data', foldInEarn)
+    pathInFund = os.path.join(os.getcwd(), 'Data', foldInFund)
+    pathOut = os.path.join(os.getcwd(), 'Data', foldOut)
 
 # Make the output directory if it doesn't exist
 if not os.path.isdir(pathOut):

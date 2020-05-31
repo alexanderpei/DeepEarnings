@@ -2,6 +2,7 @@ import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from HelperFunctions import AlexComputer
 
 # This function cleans the text file that was generated from querying  CRSP / Quarterly Update / Stock / Security Files
 # / CRSP Daily Stock through Wharton Research Data Services. The data fields selected were all of them, but you really
@@ -13,8 +14,12 @@ import matplotlib.pyplot as plt
 
 foldIn  = 'DirtyStockPrice'
 foldOut = 'CleanStockPrice'
-pathIn  = os.path.join(os.getcwd(), foldIn)
-pathOut = os.path.join(os.getcwd(), foldOut)
+if AlexComputer():
+    pathIn  = os.path.join(os.getcwd(), foldIn)
+    pathOut = os.path.join(os.getcwd(), foldOut)
+else:
+    pathIn  = os.path.join(os.getcwd(), 'Data', foldIn)
+    pathOut = os.path.join(os.getcwd(), 'Data', foldOut)
 
 for file in os.listdir(pathIn):
     if file.endswith('.txt'):

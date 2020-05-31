@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+from HelperFunctions import AlexComputer
 
 # This function will load all of the text files that were gathered get_Sentiment.R and converts them to a
 # Pandas data frame.
@@ -7,8 +8,13 @@ import pandas as pd
 
 foldIn  = 'DirtySentiment'
 foldOut = 'CleanSentiment'
-pathIn  = os.path.join(os.getcwd(), foldIn)
-pathOut = os.path.join(os.getcwd(), foldOut)
+if AlexComputer():
+    pathIn  = os.path.join(os.getcwd(), foldIn)
+    pathOut = os.path.join(os.getcwd(), foldOut)
+else:
+    pathIn  = os.path.join(os.getcwd(), 'Data', foldIn)
+    pathOut = os.path.join(os.getcwd(), 'Data', foldOut)
+
 
 # Make the output directory if it doesn't exist
 if not os.path.isdir(pathOut):
@@ -34,8 +40,9 @@ for file in os.listdir(pathIn):
         for line in Lines[1:]:
 
             # There is some jank, some of the entries are in double quotes and some are not.
+
             line = line.strip()
-            split = line.split('' ')
+            split = line.split('" ')
 
             # Assuming that the date filed is for the previous quarter. This may not be the case if a company had to
             # refile for some reason. Also this is where the jank happens since the date filed and the accession number
@@ -43,7 +50,7 @@ for file in os.listdir(pathIn):
             split_jank = split[4].split()
 
             DateFiled = split_jank[0]
-            AccessionNumber = split_jank[1].replace(''', '')
+            AccessionNumber = split_jank[1].replace('"', '')
 
             # The rest of the data
             split_data = split[5].split()
@@ -53,11 +60,11 @@ for file in os.listdir(pathIn):
             # correct 10Q/10K filing for the respective quarter (for example 10Q for Q1 will be released in Q2).
             tempQDate = (pd.to_datetime(DateFiled, format='%Y/%m/%d') - pd.Timedelta(90, 'D')).to_period('Q')
 
-            df.at[tempQDate, 'CIK'] = split[1].replace(''', '')
-            df.at[tempQDate, 'CompanyName'] = split[2].replace(''', '')
-            df.at[tempQDate, 'FormType'] = split[3].replace(''', '')
-            df.at[tempQDate, 'DateFiled'] = DateFiled
-            df.at[tempQDate, 'AccessionNumber'] = AccessionNumber
+            df.at[tempQDate, "CIK"] = split[1].replace('"', '')
+            df.at[tempQDate, "CompanyName"] = split[2].replace('"', '')
+            df.at[tempQDate, "FormType"] = split[3].replace('"', '')
+            df.at[tempQDate, "DateFiled"] = DateFiled
+            df.at[tempQDate, "AccessionNumber"] = AccessionNumber
             df.at[tempQDate, columns[5:17]] = split_data
 
         # Can't save a file if it is a DOS file name

@@ -1,6 +1,7 @@
 import os
 import numpy as np
 import pandas as pd
+from HelperFunctions import AlexComputer
 
 # This function will load all of the text files that were webscraped using get_ZacksEarnings.R and converts them to a
 # Pandas dataframe.
@@ -8,8 +9,12 @@ import pandas as pd
 
 foldIn  = 'DirtyZacksEarnings'
 foldOut = 'CleanZacksEarnings'
-pathIn  = os.path.join(os.getcwd(), foldIn)
-pathOut = os.path.join(os.getcwd(), foldOut)
+if AlexComputer():
+    pathIn  = os.path.join(os.getcwd(), foldIn)
+    pathOut = os.path.join(os.getcwd(), foldOut)
+else:
+    pathIn  = os.path.join(os.getcwd(), 'Data', foldIn)
+    pathOut = os.path.join(os.getcwd(), 'Data', foldOut)
 
 # Make the output directory if it doesn't exist
 if not os.path.isdir(pathOut):
@@ -31,7 +36,7 @@ for file in os.listdir(pathIn):
         for line in Lines[1:]:
 
             line.strip()
-            split = line.strip().split('' '')
+            split = line.strip().split('" "')
 
             # Need to build the index for the data frame.
             tempQDate = split[2]

@@ -1,6 +1,7 @@
 import os
 import numpy as np
 import pandas as pd
+from HelperFunctions import AlexComputer
 
 # This function cleans the text file that was generated from querying Compustat - Capital IQ / Compustat / North America
 # - Daily / Fundamentals Quarterly through Wharton Research Data Services. The data fields selected were all of them.
@@ -8,8 +9,12 @@ import pandas as pd
 
 foldIn  = 'DirtyCompustatFundQuarterly'
 foldOut = 'CleanCompustatFundQuarterly'
-pathIn  = os.path.join(os.getcwd(), foldIn)
-pathOut = os.path.join(os.getcwd(), foldOut)
+if AlexComputer():
+    pathIn  = os.path.join(os.getcwd(), foldIn)
+    pathOut = os.path.join(os.getcwd(), foldOut)
+else:
+    pathIn  = os.path.join(os.getcwd(), 'Data', foldIn)
+    pathOut = os.path.join(os.getcwd(), 'Data', foldOut)
 
 # Make the output directory if it doesn't exist
 if not os.path.isdir(pathOut):

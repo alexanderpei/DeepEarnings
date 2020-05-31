@@ -33,12 +33,6 @@ need to clean it up before I commit).
 
 ## Getting Started
 
-__Note: If you want to play around with these scripts using the small data set that I have provided, make sure 
-to copy all of the folders in "Data" to the main directory with all of the scripts, or change the file paths 
-in the scripts themselves but add the folder "Data". This is because I locally have the full data set that 
-I don't want to commit to the repo. Also I suck at Git since I'm new so if there is some nice solution 
-to this let me know.__
-
 This project uses the R package "edgar" to scrape SEC 10Q/10K filings for sentiment analysis. 
 You also need basic things like Pandas, scikit, and numpy. The neural networks will be built using Keras. 
 I'm using PyCharm for everything so just download that and you can clone the repo. 
