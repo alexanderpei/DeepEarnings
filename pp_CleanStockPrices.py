@@ -21,6 +21,10 @@ else:
     pathIn  = os.path.join(os.getcwd(), 'Data', foldIn)
     pathOut = os.path.join(os.getcwd(), 'Data', foldOut)
 
+# Make the output directory if it doesn't exist
+if not os.path.isdir(pathOut):
+    os.mkdir(pathOut)
+
 for file in os.listdir(pathIn):
     if file.endswith('.txt'):
         print('Currently cleaning the CRSP Query')
@@ -39,7 +43,7 @@ for file in os.listdir(pathIn):
 
         # The text file has each company stacked on top of each other
         prevTkr = '' # The ticker in the previous line, we need this to know when to make a new data frame
-        while file:
+        while line:
 
             line = fid.readline().strip()
             split = line.split('\t')
@@ -72,3 +76,9 @@ for file in os.listdir(pathIn):
 # Save the last data frame
 df.to_pickle(os.path.join(pathOut, prevTkr + '.pk'))
 
+# Plot a stock price just to test things are working
+# temp = df['prc'].to_numpy().astype(np.float)
+# temp = np.delete(temp, np.where(np.isnan(temp)))
+#
+# plt.plot(temp)
+# plt.show()
