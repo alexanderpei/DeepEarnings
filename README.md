@@ -120,7 +120,7 @@ samples while columns correspond to features.
 python pp_CleanCompustat.py
 ```
 This will make a data frame formatted like so. These are a few entries for the Compustat Fundamanetals Quarterly for 
-AAPL.
+AAPL. For example, mkvaltq is the market capitalization.
 
 |Quarter (index for the df) | gvkey | datadate | fyearq | fqtr |  fyr | indfmt | ... | mkvaltq | prccq | prchq | prclq | adjex | spcseccd | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
@@ -135,7 +135,7 @@ Same thing as above, must have ran the get_SecSentiment.R script before this one
 python pp_CleanSecSentiment.py
 ```
 This will make a data frame formatted like so. These are a few entries for the sentiment analysis
-for AAPL. lmWeakCnt are the number of Loughran-McDonald weak words in the 10Q/10K document.
+for AAPL. For example, lmWeakCnt are the number of Loughran-McDonald weak words in the 10Q/10K document.
 
 | Quarter (index for the df) | CIK | CompanyName | FormType | DateFiled | ... | lmWeakCnt | lmUncerCnt | lmLitigCnt | harvNegCnt |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
