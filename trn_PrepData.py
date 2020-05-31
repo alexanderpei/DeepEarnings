@@ -21,8 +21,8 @@ foldInFund = "CleanCompustatFundQuarterly"
 foldOut    = "TrainData"
 # pathInEarn  = r"C:\Users\Alex\Desktop\small data\CleanZacksEarnings"
 # pathInFund  = r"C:\Users\Alex\Desktop\small data\CleanCompustatFundQuarterly"
-pathInEarn  = os.path.join(os.getcwd(), foldInEarn)
-pathInFund  = os.path.join(os.getcwd(), foldInFund)
+pathInEarn = os.path.join(os.getcwd(), foldInEarn)
+pathInFund = os.path.join(os.getcwd(), foldInFund)
 pathOut = os.path.join(os.getcwd(), foldOut)
 
 # Make the output directory if it doesn't exist
