@@ -113,7 +113,7 @@ samples while columns correspond to features.
 ```
 python pp_CleanCompustat.py
 ```
-This will make a data frame formatted like so. These are a few entries for the Compustat Fundamanetals Quarterly for 
+This will make a data frame formatted like so. These are a few entries for the Compustat Fundamentals Quarterly for 
 AAPL. For example, mkvaltq is the market capitalization.
 
 |Quarter (index for the df) | gvkey | datadate | fyearq | fqtr |  fyr | indfmt | ... | mkvaltq | prccq | prchq | prclq | adjex | spcseccd | 
@@ -149,14 +149,14 @@ __Preprocessing__
 
 Financial data is messy because comapanies may omit certain financial data fields (Apple may not have reported their
 good will for example). KNN imputation is a method used to fill in missing nan values based on closer points according
-to some distance metric.
+to some distance metric. This may or may not be a valid assumption for certain data fields. 
 
 The data are also scaled by the market capitalization of every company to allow fair comparisons between companies'
 financial data.
 
 The data are also whitened (zero mean and unit variance across features) which can improve neural network training.
 
-The data set contains 56621 samples after cleaning. Train:test:validation are 0.8:0.1:0.1. 
+The data set contains 56621 samples after cleaning. Train:test:validation set are split 0.8:0.1:0.1. 
 
 The network will contain two hidden layers with 250 hidden units each implented using Keras. SeLU activations were 
 chosen opposed to ReLU for better test data. l2 regularization also reduced overfitting and improved test accuracy.
