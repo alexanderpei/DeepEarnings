@@ -4,10 +4,10 @@ import pandas as pd
 
 # This function cleans the text file that was generated from querying Compustat - Capital IQ / Compustat / North America
 # - Daily / Fundamentals Quarterly through Wharton Research Data Services. The data fields selected were all of them.
-# Assumes that there exists a directory "DirtyCompustatFundQuarterly" with a text file in there from the query
+# Assumes that there exists a directory 'DirtyCompustatFundQuarterly' with a text file in there from the query
 
-foldIn  = "DirtyCompustatFundQuarterly"
-foldOut = "CleanCompustatFundQuarterly"
+foldIn  = 'DirtyCompustatFundQuarterly'
+foldOut = 'CleanCompustatFundQuarterly'
 pathIn  = os.path.join(os.getcwd(), foldIn)
 pathOut = os.path.join(os.getcwd(), foldOut)
 
@@ -16,8 +16,8 @@ if not os.path.isdir(pathOut):
     os.mkdir(pathOut)
 
 for file in os.listdir(pathIn):
-    if file.endswith(".txt"):
-        print("Currently cleaning the Compustat Query")
+    if file.endswith('.txt'):
+        print('Currently cleaning the Compustat Query')
 
         pathFile = os.path.join(pathIn, file)
         fid = open(pathFile, 'r')
@@ -38,12 +38,12 @@ for file in os.listdir(pathIn):
             if currTkr != prevTkr:
                 # Creating an individual data frame for each stock. Not sure if this is the best way. Dataframe will
                 # have the indices as the quarters. If we moved to a new ticker we will save the old one
-                print("Currently cleaning: " + currTkr)
+                print('Currently cleaning: ' + currTkr)
                 if not prevTkr == '':
                     # Can't save a file if it is a DOS file name
-                    Dos = ["CON", "AUX", "PRN", "LST", "NUL"]
+                    Dos = ['CON', 'AUX', 'PRN', 'LST', 'NUL']
                     if prevTkr not in Dos:
-                        df.to_pickle(os.path.join(pathOut, prevTkr + ".pk"))
+                        df.to_pickle(os.path.join(pathOut, prevTkr + '.pk'))
                 df = pd.DataFrame(columns=columns, index=dates)
 
             # In this case, the second entry in split is the datadate queried variable from Compustat. May differ
@@ -58,4 +58,4 @@ for file in os.listdir(pathIn):
             prevTkr = currTkr
 
 # Save the last data frame
-df.to_pickle(os.path.join(pathOut, prevTkr + ".pk"))
+df.to_pickle(os.path.join(pathOut, prevTkr + '.pk'))

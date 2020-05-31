@@ -7,13 +7,13 @@ from keras.layers import Dense
 from keras.regularizers import l2
 from sklearn.model_selection import train_test_split
 
-foldIn  = "TrainData"
-foldOut = "Net"
+foldIn  = 'TrainData'
+foldOut = 'Net'
 pathIn  = os.path.join(os.getcwd(), foldIn)
 pathOut = os.path.join(os.getcwd(), foldOut)
 
-X = np.loadtxt(os.path.join(pathIn, "X_imputed.txt"))
-y = np.loadtxt(os.path.join(pathIn, "y_imputed.txt"))
+X = np.loadtxt(os.path.join(pathIn, 'X_imputed.txt'))
+y = np.loadtxt(os.path.join(pathIn, 'y_imputed.txt'))
 print(np.sum(y))
 # Downsample class 1 (beat)
 # nClass1 = np.sum(y == 1)
@@ -60,8 +60,8 @@ _, testAcc = model.evaluate(Xtest, ytest)
 print('Test Accuracy: %.2f' % (testAcc*100))
 
 # Save the model
-pathOutModel = os.path.join(pathOut, "model.json")
+pathOutModel = os.path.join(pathOut, 'model.json')
 modelJson = model.to_json()
 with open(pathOutModel, 'w') as jsonFile:
     jsonFile.write(modelJson)
-model.save_weights(os.path.join(pathOut, "model.h5"))
+model.save_weights(os.path.join(pathOut, 'model.h5'))

@@ -2,36 +2,39 @@ import os
 import sys
 import numpy as np
 import pandas as pd
-from HelperFunctions import getFeatList
+from HelperFunctions import getFeatList, AlexComputer
 from sklearn.impute import KNNImputer
 np.set_printoptions(precision=3, threshold=sys.maxsize)
 
 # This script will load in the Pandas data frames into a numpy matrix.
 # Step 1. Will load in the earnings pandas data frame
 # Step 2. Will load in the fundamentals quarterly data
-#   - This step will require a file "list_my_quarterly_features.txt". This file contains the list of features that
+#   - This step will require a file 'list_my_quarterly_features.txt'. This file contains the list of features that
 #   - that you want to use. These features need normalization (for example dividing the feature by the market
 #   - capitalization so that it is a fair comparison across companies)
-#   = This step will also require a file "list_my_quarterly_features_nonorm.txt". These features do not need to be
+#   = This step will also require a file 'list_my_quarterly_features_nonorm.txt'. These features do not need to be
 #   - normalized. For example some ratios or percentage features.
 # Step 3. Impute the missing data points using knnimpute
 
-foldInEarn = "CleanZacksEarnings"
-foldInFund = "CleanCompustatFundQuarterly"
-foldOut    = "TrainData"
-# pathInEarn  = r"C:\Users\Alex\Desktop\small data\CleanZacksEarnings"
-# pathInFund  = r"C:\Users\Alex\Desktop\small data\CleanCompustatFundQuarterly"
-pathInEarn = os.path.join(os.getcwd(), foldInEarn)
-pathInFund = os.path.join(os.getcwd(), foldInFund)
-pathOut = os.path.join(os.getcwd(), foldOut)
+foldInEarn = 'CleanZacksEarnings'
+foldInFund = 'CleanCompustatFundQuarterly'
+foldOut    = 'TrainData'
+if AlexComputer(): # Use the full data set
+    pathInEarn = os.path.join(os.getcwd(), foldInEarn)
+    pathInFund = os.path.join(os.getcwd(), foldInFund)
+    pathOut = os.path.join(os.getcwd(), foldOut)
+else:
+    pathInEarn = os.path.join(os.getcwd(), 'Data' foldInEarn)
+    pathInFund = os.path.join(os.getcwd(), foldInFund)
+    pathOut = os.path.join(os.getcwd(), foldOut)
 
 # Make the output directory if it doesn't exist
 if not os.path.isdir(pathOut):
     os.mkdir(pathOut)
 
 # Need to load in the feature lists
-featList       = getFeatList("list_my_quarterly_features.txt")
-featListNonorm = getFeatList("list_my_quarterly_features_nonorm.txt")
+featList       = getFeatList('list_my_quarterly_features.txt')
+featListNonorm = getFeatList('list_my_quarterly_features_nonorm.txt')
 
 # Date indicies for the data frame
 dates = pd.date_range(start='1/1/2008', end='1/1/2021', freq='Q').to_period('Q')
@@ -44,16 +47,16 @@ y = np.zeros((nData))
 # Looping through all of the earnings data frames
 count = 0
 for file in os.listdir(pathInEarn):
-    if file.endswith(".pk"):
+    if file.endswith('.pk'):
 
-        print("Currently cleaning: " + file)
+        print('Currently cleaning: ' + file)
 
         # Read in the data frames
         dfEarn = pd.read_pickle(os.path.join(pathInEarn, file))
         dfFund = pd.read_pickle(os.path.join(pathInFund, file))
 
         feat = dfFund[featList].to_numpy().astype(np.float)
-        featNormFact = dfFund["mkvaltq"].to_numpy().astype(np.float) # We will normalize features by the market capitalization during each quarter
+        featNormFact = dfFund['mkvaltq'].to_numpy().astype(np.float) # We will normalize features by the market capitalization during each quarter
         # Any good way to vectorize this???
         for idxRow in range(len(dates)):
             feat[idxRow, :] /= featNormFact[idxRow]
@@ -69,8 +72,8 @@ for file in os.listdir(pathInEarn):
 
         # Gather the labels. However, some of the earnings data will be nans. We want to remove these samples.
         # If either estimate or reported is a nan, set label as nan. Remove them later along with sample.
-        Estimate = dfEarn["Estimate"].to_numpy().astype(np.float)
-        Reported = dfEarn["Reported"].to_numpy().astype(np.float)
+        Estimate = dfEarn['Estimate'].to_numpy().astype(np.float)
+        Reported = dfEarn['Reported'].to_numpy().astype(np.float)
         idxBad = np.union1d(np.where(np.isnan(Estimate)), np.where(np.isnan(Reported))) # Union of both, need both to be valid
         yTemp = (Reported > Estimate).astype(np.float) # need float type to set nan value
         yTemp[idxBad] = np.nan # Set these values to nan and then take care of them later
@@ -101,7 +104,7 @@ print(X.shape, y.shape)
 # For the purpose of KNN imputation, need to have a feature where every sample has a number value (not a nan).
 # Arbitrarily will choose the total long term debt as this feature. Then remove any row that doesn't have
 # a value for this feature. Feel free to add more features.
-idxNeedFeat = featList.index("dlttq")
+idxNeedFeat = featList.index('dlttq')
 idxBad = np.where(np.isnan(X[:, idxNeedFeat]))[0]
 X = np.delete(X, idxBad, axis=0)
 y = np.delete(y, idxBad, axis=0)

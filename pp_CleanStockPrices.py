@@ -9,16 +9,16 @@ import matplotlib.pyplot as plt
 # Return without dividends. Add more if you like
 # The data is daily.
 #
-# Assumes that there exists a directory "DirtyStockPrice" with a text file in there from the query.
+# Assumes that there exists a directory 'DirtyStockPrice' with a text file in there from the query.
 
-foldIn  = "DirtyStockPrice"
-foldOut = "CleanStockPrice"
+foldIn  = 'DirtyStockPrice'
+foldOut = 'CleanStockPrice'
 pathIn  = os.path.join(os.getcwd(), foldIn)
 pathOut = os.path.join(os.getcwd(), foldOut)
 
 for file in os.listdir(pathIn):
-    if file.endswith(".txt"):
-        print("Currently cleaning the CRSP Query")
+    if file.endswith('.txt'):
+        print('Currently cleaning the CRSP Query')
 
         pathFile = os.path.join(pathIn, file)
         fid = open(pathFile, 'r')
@@ -45,19 +45,19 @@ for file in os.listdir(pathIn):
                 if currTkr != prevTkr:
                     # Creating an individual data frame for each stock. Not sure if this is the best way. Dataframe will
                     # have the indices as the quarters. If we moved to a new ticker we will save the old one
-                    print("Currently cleaning: " + currTkr)
+                    print('Currently cleaning: ' + currTkr)
                     if not prevTkr == '':
                         # Can't save a file if it is a DOS file name
-                        Dos = ["CON", "AUX", "PRN", "LST", "NUL"]
+                        Dos = ['CON', 'AUX', 'PRN', 'LST', 'NUL']
                         if prevTkr not in Dos:
 
-                            df.to_pickle(os.path.join(pathOut, prevTkr + ".pk"))
+                            df.to_pickle(os.path.join(pathOut, prevTkr + '.pk'))
                     df = pd.DataFrame(columns=columns, index=dates)
 
                 # For our query, the date is the 2nd entry
                 tempDate = pd.to_datetime(split[1], format='%Y%m%d')
 
-                # Fill in the data frame at this data. Sometimes there is missing data. For our query, the length of "split"
+                # Fill in the data frame at this data. Sometimes there is missing data. For our query, the length of 'split'
                 # should be 12.
                 if len(split) == 12:
                     df.at[tempDate, columns] = split
@@ -65,5 +65,5 @@ for file in os.listdir(pathIn):
                 prevTkr = currTkr
 
 # Save the last data frame
-df.to_pickle(os.path.join(pathOut, prevTkr + ".pk"))
+df.to_pickle(os.path.join(pathOut, prevTkr + '.pk'))
 

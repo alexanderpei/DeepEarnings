@@ -1,3 +1,5 @@
+import os
+
 def getFeatList(fileName):
 
     fid = open(fileName, 'r')
@@ -10,3 +12,9 @@ def getFeatList(fileName):
             featList.append(split[0].lower())
 
     return featList
+
+def AlexComputer():
+    if os.getcwd() == r'C:\Users\Alex\PycharmProjects\DeepEarnings':
+        return True
+    else:
+        return False
