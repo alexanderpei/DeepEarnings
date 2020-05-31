@@ -15,8 +15,8 @@ Baseline bias is the natural bias in the data for a company to beat earnings.
 
 | Data Features | Model | Baseline Bias | Train Acc | Test Acc | Num Samples | Time Range | 
 | --- | --- | --- | --- | --- | --- | --- |
-| Compustat IQ Fundamentals Quarterly | 2 Layer NN | 57.5% | 66.91% | 71.11% | 56621 | 2010-2020 |
-| OHCLV 30 prior to earnings | 10 Layer biLSTM |  
+| Compustat IQ Fundamentals Quarterly | 2 Layer NN | 57.50% | 66.91% | 71.11% | 56621 | 2010-2020 |
+| OHCLV 30 prior to earnings          | biLSTM     | 56.84% |        |        | 81548 | 2010-2020 |
 ### Looking for collaborators / to-do list
 Feel free to reach out to me if you're interested in collaborating. I'm looking for people who are experienced 
 traders who might know how to develop trading strategies off of this. I'm also looking for people who have an
@@ -39,7 +39,7 @@ You're going to need a text file "list_cik.txt" which contains a list of company
 This list will provide the companies to the get_ZacksEarnings.R to scrape. If you don't plan on doing sentiment
  analysis, you don't need the CIK numbers. 
 
-## Gathering the Data
+## Gathering the data
 
 ### Scraping zacks.com earnings
 
@@ -53,9 +53,9 @@ Rscript get_ZacksEarnings.R
 ```
 This will create a directory "DirtyZacksEarnings" where it stores each earnings for a company in a text file.
 
-### Financial Data
+### Financial data
 
-I have access to Compustat North American through my university. I don't think I'm allowed to share that data 
+I have access to Compustat North American Wharton Research Data Service through my university. I don't think I'm allowed to share that data 
 set because of their terms and conditions. If you do have access yourself, you can get this data set by querying 
 Compustat - Capital IQ / Compustat / North America
 Daily / Fundamentals Quarterly through Wharton Research Data Services. For the variables, select all of them.
@@ -71,7 +71,15 @@ This is the main chunk of data upon which the algorithm is trained on. The algor
 sheets, cash flow, debt, and much more, from the previous quarter. From these data, the algorithm will try to 
 predict if the company will beat earnings or not. 
 
-### Downloading 10Q/10K files and sentiment analysis (optional)
+### CRSP stock data
+
+I have access to CRSP Stock Prices Wharton Research Data Service through my university. There are 
+alternatives like pyfinance to get daily stock prices. You can replicate my query by doing:
+CRSP / Quarterly UpdateStock / Security Files / CRSP Daily Stock. For the desired variables:
+Company Name, Ticker, Price, Share Volume, Open Price, Ask or High, Bid or Low, Closing Bid, 
+Closing Ask, Return without Dividends.
+
+### Downloading 10Q/10K files and sentiment analysis 
 
 Again this will require the text file "list_cik.txt". I'm using the R package "edgar", which to me as been the 
 easiest way to scrap SEC filings. This package requires a CIK number to scrape filings from. The current 
@@ -103,9 +111,10 @@ This will make a data frame formatted like so. These are a few earnings from AAP
 | 2019Q4 | 2020-01-28 00:00:00 | 4.54 | 4.99 | 0.45 | 9.91189 | True |
 | 2020Q1 | 2020-04-30 00:00:00 | 2.09 | 2.55 | 0.46 | 22.0096 | True |
 
-### Clean compustat data
-This script will save an X and y text files containing the training data with the labels. Rows correspond to 
-samples while columns correspond to features. 
+### Clean Compustat data
+
+The queried compustat data is a long tab delimited text file with all of the dates and companies 
+stacked on top of each other. 
 
 ```
 python pp_CleanCompustat.py
@@ -120,7 +129,25 @@ AAPL. For example, mkvaltq is the market capitalization.
 |2019Q4 | 001690 | 20191231 | 2020 | 1 | 9 | INDL | ... | 1287643.2104 | 293.6500 | 293.9700 | 215.1320 | 1.0000 | 940 | 
 |2020Q1 | 001690 | 20200331 | 2020 | 2 | 9 | INDL | ... | 1099546.6542 | 254.2900 | 327.8500 | 212.6100 | 1.0000 | 940 | 
 
-### Clean sentiment data (optional)
+### Clean CRSP stock data 
+
+Similar process to cleaning the Compustat data. 
+
+``` 
+python pp_CLeanStockPrice.py
+```
+
+| Date | permno  | date | ticker | comnam | bidlo | ... | vol | bid | ask | openprc | retx |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+|2010-01-05 | 14593 | 20100105 | AAPL | APPLE INC | 213.25000 | ... | 22082278 | 214.35001 | 214.38000 | 214.60001 | 0.001729  |
+|2010-01-06 | 14593 | 20100106 | AAPL | APPLE INC | 210.75000 | ... | 20396105 | 210.92999 | 210.94000 | 214.38000 | -0.015906 |
+|2010-01-07 | 14593 | 20100107 | AAPL | APPLE INC | 209.05000 | ... | 17628746 | 210.53999 | 210.52000 | 211.75000 | -0.001849 |
+|2010-01-08 | 14593 | 20100108 | AAPL | APPLE INC | 209.06000 | ... | 16553861 | 211.96001 | 212.00000 | 210.30000 | 0.006648  |
+|2010-01-09 |   NaN |      NaN |  NaN |       NaN |      NaN  | ... |     NaN  |      NaN  |      NaN  |      NaN  |      NaN  |
+|2010-01-10 |   NaN |      NaN |  NaN |       NaN |      NaN  | ... |     NaN  |      NaN  |      NaN  |      NaN  |      NaN  |
+|2010-01-11 | 14593 | 20100111 | AAPL | APPLE INC | 208.45000 | ... | 17085997 | 210.02000 | 210.13000 | 212.80000 | -0.008822 |
+
+### Clean sentiment data 
 Same thing as above, must have ran the get_SecSentiment.R script before this one.
 ``` 
 python pp_CleanSecSentiment.py
