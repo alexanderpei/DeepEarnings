@@ -180,6 +180,8 @@ financial data.
 
 The data are also whitened (zero mean and unit variance across features) which can improve neural network training.
 
+__Training__
+
 The data set contains 56621 samples after cleaning. Train:test:validation set are split 0.8:0.1:0.1. 
 
 The network will contain two hidden layers with 250 hidden units each implented using Keras. SeLU activations were 
@@ -200,6 +202,8 @@ dynamics of the OHLCV movement.
 
 Additionally, "background" market data in the form of SPY will be added for each time frame. This may give an indication
 of how the market is doing in general.
+
+__Training__
 
 A single biLSTM layer with 10 hidden units is used along with a dropout layer to reduce overfitting.
 
