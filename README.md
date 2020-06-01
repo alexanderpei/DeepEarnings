@@ -28,6 +28,7 @@ need to clean it up before I commit).~~ Improve LSTM hyperparameters and add tec
 2. Use advanced NLP methods on 10Q/10K datasets
 3. Use reinforcement learning to develop trading strategies
 4. Use alternative data (Google trends) 
+5. Find and use options data
 
 ## Getting Started
 
