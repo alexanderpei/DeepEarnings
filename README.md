@@ -212,3 +212,18 @@ Future directions will be to add more technical indicators. As you can see from 
 and the parameters definitely need tuning. Including the background SPY data definitely helps.
 
 ![nn](./pics/lstm-plot.png)
+
+### Multilayer perceptron for sentiment data 
+
+__Preprocessing__ 
+
+All of the LM word counts were divided by the total number of words in the 10Q/10K document to create a 
+frequency for the occurence of certain word categories. The samples were normalized across features
+so that each feature had zero mean and unit variance for improved neural network training.
+
+__Training__
+
+SeLU layers were doing some weird stuff where the validation accuracy was higher than the training accuracy.
+5 ReLU layers were used instead. Also RMSprop over Adam made nicer looking training plots.
+
+![nn](./pics/senti-plot.png)
