@@ -16,14 +16,14 @@ Baseline bias is the natural bias in the data for a company to beat earnings.
 | Data Features | Model | Baseline Bias | Train Acc | Test Acc | Num Samples | Time Range | 
 | --- | --- | --- | --- | --- | --- | --- |
 | Compustat IQ Fundamentals Quarterly | 2 Layer NN | 57.50% | 66.91% | 71.11% | 56621 | 2010-2020 |
-| OHCLV 30 prior to earnings          | biLSTM     | 56.84% | 58.54% | 58.45% | 81549 | 2010-2020 |
+| OHCLV 30 prior to earnings          | biLSTM     | 56.84% | 58.89% | 58.34% | 81549 | 2010-2020 |
 ### Looking for collaborators / to-do list
 Feel free to reach out to me if you're interested in collaborating. I'm looking for people who are experienced 
 traders who might know how to develop trading strategies off of this. I'm also looking for people who have an
  interest in machine learning with finance applications.
 Future ideas:
 1. ~~Use LSTMs/RNNs to track OHLCLV + technical indicators before earnings (I've sorta tried this and it sorta works,
-need to clean it up before I commit).~~ Improve LSTM parameters and add technical indicators
+need to clean it up before I commit).~~ Improve LSTM hyperparameters and add technical indicators
 2. Use advanced NLP methods on 10Q/10K datasets
 3. Use reinforcement learning to develop trading strategies
 4. Use alternative data (Google trends) 
